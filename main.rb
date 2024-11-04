@@ -16,9 +16,15 @@ class TicTacToe
 
   def play_round
     @display.put_board(@logic.game_state)
-    @logic.play_move
+    @logic.play_move(@current_player)
+    return end_game if @logic.game_won?
 
     @current_player == 'X' ? @current_player = 'O' : @current_player = 'X'
+    play_round
+  end
+
+  def end_game
+    puts 'Game over! I guess'
   end
 end
 

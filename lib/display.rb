@@ -7,13 +7,13 @@ class Display
     puts [
       "   0     1     2 ",
       "      |     |    ",
-      "0  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]} ",
+      "0  #{game_state[0][0]}  |  #{game_state[0][1]}  |  #{game_state[0][2]} ",
       " _____|_____|____",
       "      |     |    ",
-      "1  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]} ",
+      "1  #{game_state[1][0]}  |  #{game_state[1][1]}  |  #{game_state[1][2]} ",
       " _____|_____|____",
       "      |     |    ",
-      "2  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]} ",
+      "2  #{game_state[2][0]}  |  #{game_state[2][1]}  |  #{game_state[2][2]} ",
       "      |     |    \n\n",
     ]
   end
