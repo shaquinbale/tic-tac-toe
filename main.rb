@@ -10,13 +10,18 @@ class TicTacToe
   end
 
   def start_game
-    @display.logo
-    puts "                        [Human] or [Computer] Opponent?"
-    puts @logic.get_player_opponent
+    @display.put_logo
+    play_round
+  end
 
+  def play_round
+    @display.put_board(@logic.game_state)
+    @logic.play_move
+
+    @current_player == 'X' ? @current_player = 'O' : @current_player = 'X'
   end
 end
 
 game = TicTacToe.new
 
-game.start_game
+game.play_round

@@ -3,22 +3,22 @@ class Display
     
   end
 
-  def render_board(game_state)
+  def put_board(game_state)
     puts [
-      "   a     b     c ",
+      "   0     1     2 ",
+      "      |     |    ",
+      "0  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]} ",
+      " _____|_____|____",
       "      |     |    ",
       "1  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]} ",
       " _____|_____|____",
       "      |     |    ",
       "2  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]} ",
-      " _____|_____|____",
-      "      |     |    ",
-      "3  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]} ",
-      "      |     |    ",
+      "      |     |    \n\n",
     ]
   end
 
-  def logo
+  def put_logo
     puts [
       "  _______ _____ _____   _______       _____   _______ ____  ______ ",
       " |__   __|_   _/ ____| |__   __|/\\   / ____| |__   __/ __ \\|  ____|",
@@ -27,6 +27,8 @@ class Display
       "    | |   _| || |____     | |/ ____ \\ |____     | | | |__| | |____ ",
       "    |_|  |_____\\_____|    |_/_/    \\_\\_____|    |_|  \\____/|______|\n\n",
     ]
+
+    puts "                        [Human] or [Computer] Opponent?"
   end
 end
 
