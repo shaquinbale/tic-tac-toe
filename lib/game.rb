@@ -29,14 +29,17 @@ class Game
       play_round(player_x, player_o)
     else
       puts 'Invalid choice, try again.'
+      start
     end
+
+    game_over
   end
 
   def play_round(player_x, player_o)
     player_x.play_turn
-    return unless check_winner == nil
+    return unless @board.check_winner == nil
     player_o.play_turn
-    return unless check_winner == nil
+    return unless @board.check_winner == nil
 
     play_round(player_x, player_o)
   end
@@ -45,5 +48,3 @@ class Game
     puts 'game over'
   end
 end
-
-game = Game.new

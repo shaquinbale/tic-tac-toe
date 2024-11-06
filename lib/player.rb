@@ -28,7 +28,6 @@ class Player
     move = self.get_move
     column = move[0].ord - 97 # The #ord of 'a' is 97, so ('a'.ord - 97) would equal zero
     row = move[1].to_i - 1
-    puts "MOVE IS #{row} and #{column}"
 
     unless @board.game_state[row][column] == ' '
       puts "That's an occupied space. Try again"
