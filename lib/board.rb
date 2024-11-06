@@ -1,3 +1,6 @@
+# Responsible for any modifications to the board such as placing pieces,
+# storing the board, checking for win conditions, etc.
+
 class Board
   attr_reader :game_state
 
@@ -35,10 +38,24 @@ class Board
 
   def place_piece(row, column, piece)
     @game_state[row][column] = piece
-    p @game_state
   end
 
-  def game_won?
-    
+  def check_winner
+    board = @game_state
+    # Check rows
+    board.each do |row|
+      return board[0] if row[0] != ' ' && row.uniq.length == 1
+    end
+
+    # Check columns
+    (0..2).each do |column|
+      return board[0][column] if board[0][column] != ' ' && board[0][column] == board[1][column] && board[2][column] == board[0][column]
+    end
+
+    # Check diagonals
+    return board[0][0] if board[0][0] != ' ' && board[0][0] == board[1][1] && board[1][1] == board[2][2]
+    return board[0][2] if board[0][2] != ' ' && board[1][1] == board[1][1] && board[1][1] == board[2][0]
+
+    nil
   end
 end

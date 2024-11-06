@@ -2,6 +2,9 @@ require_relative 'player/computer'
 require_relative 'player/human'
 require_relative 'board'
 
+# Acts as the central hub of all the other classes. Doing admin work and 
+# facilitating game state
+
 class Game
   def initialize
     @current_player = 'X'
@@ -31,9 +34,15 @@ class Game
 
   def play_round(player_x, player_o)
     player_x.play_turn
+    return unless check_winner == nil
     player_o.play_turn
-    # check for game win
+    return unless check_winner == nil
+
     play_round(player_x, player_o)
+  end
+
+  def game_over(winner)
+    puts 'game over'
   end
 end
 

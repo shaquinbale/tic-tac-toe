@@ -1,5 +1,8 @@
 require_relative 'board'
 
+# Holds methods for getting moves from the player along with other info
+# such as their team ('X' or 'O') and player type (human or computer)
+
 class Player
   attr_reader :team
 
