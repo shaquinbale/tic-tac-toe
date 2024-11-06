@@ -1,4 +1,6 @@
 class Board
+  attr_reader :game_state
+
   def initialize
     @game_state = Array.new(3) { Array.new(3, ' ') }
   end
@@ -33,5 +35,9 @@ class Board
 
   def place_piece(row, column, piece)
     @game_state[row][column] = piece
+  end
+
+  def game_won?
+    
   end
 end

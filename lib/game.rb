@@ -16,12 +16,12 @@ class Game
     choice = gets.chomp
 
     if choice == '1'
-      player_x = Human.new
-      player_o = Human.new
+      player_x = Human.new('X', @board)
+      player_o = Human.new('O', @board)
       play_round(player_x, player_o)
     elsif choice == '2'
-      player_x = Human.new
-      player_o = Computer.new
+      player_x = Human.new('X', @board)
+      player_o = Computer.new('O', @board)
       play_round(player_x, player_o)
     else
       puts 'Invalid choice, try again.'
@@ -29,9 +29,8 @@ class Game
   end
 
   def play_round(player_x, player_o)
-    # player_x.play_turn
-    # player_o.play_turn
-    # play_round
+    player_x.play_turn
+    player_o.play_turn
   end
 end
 
