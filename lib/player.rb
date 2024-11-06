@@ -16,22 +16,24 @@ class Player
   def valid_move? (move)
     return false unless move.length == 2
     return false unless ('a'..'c').include?move[0]
-    return false unless (1..3).include?move[1]
+    return false unless ('1'..'3').include?move[1]
 
     true
   end
 
-  def play_turn (player)
-    move = player.get_move
+  def play_turn
+    move = self.get_move
     column = move[0].ord - 97 # The #ord of 'a' is 97, so ('a'.ord - 97) would equal zero
     row = move[1].to_i - 1
+    puts "MOVE IS #{row} and #{column}"
 
     unless @board.game_state[row][column] == ' '
       puts "That's an occupied space. Try again"
-      play_turn(player)
+      play_turn
       return
     end
 
-    @board.place_piece(row, column, player.team)
+    @board.place_piece(row, column, @team)
   end
 end
+

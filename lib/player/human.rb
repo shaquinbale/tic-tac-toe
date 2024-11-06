@@ -4,7 +4,7 @@ require_relative '../game'
 class Human < Player
   def get_move
     puts @board.board
-    puts "\nState your move."
+    puts "\nPlayer #{self.team}, State your move."
     move = gets.chomp
 
     unless self.valid_move?(move)

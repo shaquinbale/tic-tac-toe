@@ -18,23 +18,24 @@ class Board
     ASCII
   end
 
-  def board(game_state)
+  def board
     "
        a     b     c
           |     |     
-    1  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]}  
+    1  #{@game_state[0][0]}  |  #{@game_state[0][1]}  |  #{@game_state[0][2]}  
      _____|_____|_____
           |     |     
-    2  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]}  
+    2  #{@game_state[1][0]}  |  #{@game_state[1][1]}  |  #{@game_state[1][2]}  
      _____|_____|_____
           |     |     
-    3  #{game_state[0][0]}  |  #{game_state[0][0]}  |  #{game_state[0][0]}  
+    3  #{@game_state[2][0]}  |  #{@game_state[2][1]}  |  #{@game_state[2][2]}  
           |     |     
     "
   end
 
   def place_piece(row, column, piece)
     @game_state[row][column] = piece
+    p @game_state
   end
 
   def game_won?

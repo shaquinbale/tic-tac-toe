@@ -10,7 +10,8 @@ class Game
 
   def start
     puts @board.logo
-    puts "\n1) Human Vs. Human"
+    puts "\nChoose a mode:"
+    puts "1) Human Vs. Human"
     puts "2) Human Vs. Computer"
 
     choice = gets.chomp
@@ -31,9 +32,9 @@ class Game
   def play_round(player_x, player_o)
     player_x.play_turn
     player_o.play_turn
+    # check for game win
+    play_round(player_x, player_o)
   end
 end
 
 game = Game.new
-
-puts game.logo
