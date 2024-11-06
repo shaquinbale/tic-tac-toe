@@ -1,35 +1,37 @@
+require_relative 'player/computer'
+require_relative 'player/human'
+require_relative 'board'
+
 class Game
   def initialize
-    @game_state = Array.new(3) { Array.new(3, ' ') }
-  end
-
-  def logo
-    logo = <<~'ASCII'
-       /$$$$$$$$ /$$$$$$  /$$$$$$        /$$$$$$$$ /$$$$$$   /$$$$$$        /$$$$$$$$ /$$$$$$  /$$$$$$$$
-      |__  $$__/|_  $$_/ /$$__  $$      |__  $$__//$$__  $$ /$$__  $$      |__  $$__//$$__  $$| $$_____/
-         | $$     | $$  | $$  \__/         | $$  | $$  \ $$| $$  \__/         | $$  | $$  \ $$| $$      
-         | $$     | $$  | $$               | $$  | $$$$$$$$| $$               | $$  | $$  | $$| $$$$$   
-         | $$     | $$  | $$               | $$  | $$__  $$| $$               | $$  | $$  | $$| $$__/   
-         | $$     | $$  | $$    $$         | $$  | $$  | $$| $$    $$         | $$  | $$  | $$| $$      
-         | $$    /$$$$$$|  $$$$$$/         | $$  | $$  | $$|  $$$$$$/         | $$  |  $$$$$$/| $$$$$$$$
-         |__/   |______/ \______/          |__/  |__/  |__/ \______/          |__/   \______/ |________/
-    ASCII
-  end
+    @current_player = 'X'
+    @board = Board.new
+  end  
 
   def start
-    puts logo
+    puts @board.logo
     puts "\n1) Human Vs. Human"
     puts "2) Human Vs. Computer"
 
     choice = gets.chomp
 
     if choice == '1'
-      
+      player_x = Human.new
+      player_o = Human.new
+      play_round(player_x, player_o)
     elsif choice == '2'
-      nil
+      player_x = Human.new
+      player_o = Computer.new
+      play_round(player_x, player_o)
     else
       puts 'Invalid choice, try again.'
     end
+  end
+
+  def play_round(player_x, player_o)
+    # player_x.play_turn
+    # player_o.play_turn
+    # play_round
   end
 end
 
